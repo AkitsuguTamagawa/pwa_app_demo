@@ -13,6 +13,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                hostName: "akitsugu.tamagawa.git.io",
+                defaultUrl: "https://akitsugutamagawa.github.io/AkitsuguTamagawa.git.io/",
+                launcherName: "AkitsuguTamagawaIO",
+                assetStatements: '[{ "relation": ["delegate_permission/common.handle_all_urls"], ' +
+                        '"target": {"namespace": "web", "site": "https://akitsugutamagawa.github.io/AkitsuguTamagawa.git.io/"}}]'
+        ]
     }
     buildTypes {
         release {
@@ -22,6 +29,12 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
     }
 }
 
@@ -33,4 +46,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.github.GoogleChrome:custom-tabs-client:e446d08014'
 }
